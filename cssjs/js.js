@@ -1,4 +1,4 @@
 const openbtn = document.getElementById('openF')
-openbtn.onclick = (event) => {
+openbtn.onclick = function cool() {
 let curFile = window.showOpenFilePicker
 };
