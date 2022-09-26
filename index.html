@@ -2,12 +2,38 @@
 
 </head>
 <body>
-<script src="cssjs/js.js"></script>
+<script>const text = document.getElementById('text')
+const dwnld = document.getElementById('export')
+text.onchange = {
+    const text = document.getElementById('text')
+    let f = text.value.toString()
+    console.log(f)
+}
+
+</script>
 <textarea id="text" style="resize: none; height: 340px; width: 500px; font-family: monospace;" onchange="    const text = document.getElementById('text')
     let f = text.value.toString()
     console.log(f)"></textarea>
 <button id="import" style="text-align:right;left:50px;position:relative;bottom:325px;">Import</button>
-<button id="export" style="right:20px;position:relative;bottom:300px;">Save File</button>
+<button id="export" style="right:20px;position:relative;bottom:300px;" onclick="
+async function saveFile() {
+   const text = document.getElementById('text')
+    let f = text.value.toString()
+const array = new Array(f)
+const blob = new Blob(array)
+  // create a new handle
+  const newHandle = await window.showSaveFilePicker();
+
+  // create a FileSystemWritableFileStream to write to
+  const writableStream = await newHandle.createWritable();
+
+  // write our file
+  await writableStream.write(blob);
+
+  // close the file and write the contents to disk.
+  await writableStream.close();
+}
+saveFile();">Save File</button>
 <select style="position:relative;left:510px;bottom:296px;">
 <option>-Select Syntax-</option>
 <option>Plain text (.txt)</option>
@@ -27,5 +53,6 @@
 
 </select><br>
 <button style="position:relative;left:530px;bottom:260px;" onclick="const font = document.getElementById('fontsel'); const text = document.getElementById('text'); text.style.fontFamily = font.value">Change font</button>
+
 
 </body></html>
