@@ -34,7 +34,7 @@ const blob = new Blob(array)
   await writableStream.close();
 }
 saveFile();">Save File</button>
-<select style="position:relative;left:510px;bottom:296px;">
+<select style="position:absolute;left:520px;bottom:340px;">
 <option>-Select Syntax-</option>
 <option>Plain text (.txt)</option>
 <option>Javascript (.js)</option><option>HTML (.htm/.html)</option>
@@ -42,7 +42,7 @@ saveFile();">Save File</button>
 <option>Markdown (.md)</option>
 <option>C# (.cs)</option>
 <option>C++ (.cpp)</option>
-</select><select style="position:relative;left:394px;bottom:260px;" id="fontsel">
+</select><select style="position:absolute;left:535px;bottom:400px;" id="fontsel">
 
 <option>-Select Font-</option>
 <option value="sans-serif">Sans-Serif</option>
@@ -53,6 +53,7 @@ saveFile();">Save File</button>
 
 </select><br>
 <button style="position:relative;left:530px;bottom:260px;" onclick="const font = document.getElementById('fontsel'); const text = document.getElementById('text'); text.style.fontFamily = font.value">Change font</button>
+
 
 
 </body></html>
