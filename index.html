@@ -2,10 +2,10 @@
 
 </head>
 <body>
-<script>const text = document.getElementById('text')
+<script>const textArea = document.getElementById('text')
 const btn = document.getElementById('import')
 text.onchange = {
-    const text = document.getElementById('text')
+    const textArea = document.getElementById('text')
     let f = text.value.toString()
     console.log(f)
 }
@@ -14,7 +14,7 @@ butOpenFile.addEventListener('click', async () => {
   [fileHandle] = await window.showOpenFilePicker();
   const file = await fileHandle.getFile();
   const contents = await file.text();
-  text.value = contents;
+  textArea.value = contents;
 });</script>
 <textarea id="text" style="resize: none; height: 340px; width: 500px; font-family: monospace;" onchange="    const text = document.getElementById('text')
     let f = text.value.toString()
