@@ -3,14 +3,19 @@
 </head>
 <body>
 <script>const text = document.getElementById('text')
-const dwnld = document.getElementById('export')
+const btn = document.getElementById('import')
 text.onchange = {
     const text = document.getElementById('text')
     let f = text.value.toString()
     console.log(f)
 }
-
-</script>
+let fileHandle;
+butOpenFile.addEventListener('click', async () => {
+  [fileHandle] = await window.showOpenFilePicker();
+  const file = await fileHandle.getFile();
+  const contents = await file.text();
+  text.value = contents;
+});</script>
 <textarea id="text" style="resize: none; height: 340px; width: 500px; font-family: monospace;" onchange="    const text = document.getElementById('text')
     let f = text.value.toString()
     console.log(f)"></textarea>
@@ -53,6 +58,7 @@ saveFile();">Save File</button>
 
 </select><br>
 <button style="position:relative;left:530px;bottom:260px;" onclick="const font = document.getElementById('fontsel'); const text = document.getElementById('text'); text.style.fontFamily = font.value">Change font</button>
+
 
 
 
