@@ -4,13 +4,13 @@
 <body>
 <script>const textArea = document.getElementById('text')
 const btn = document.getElementById('import')
-text.onchange = {
+textArea.onchange = {
     const textArea = document.getElementById('text')
-    let f = text.value.toString()
+    let f = textArea.value.toString()
     console.log(f)
 }
 let fileHandle;
-butOpenFile.addEventListener('click', async () => {
+btn.addEventListener('click', async () => {
   [fileHandle] = await window.showOpenFilePicker();
   const file = await fileHandle.getFile();
   const contents = await file.text();
