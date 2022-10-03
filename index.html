@@ -1,14 +1,14 @@
 <html><head><title>File.Write</title>
 
 </head>
-<body>
+<body bg="black">
 <script>const textArea = document.getElementById('text')
-const btn = document.getElementById('import')
-textArea.onchange = {
+textArea.onchange = function onc() {
     const textArea = document.getElementById('text')
     let f = textArea.value.toString()
     console.log(f)
 }
+const btn = document.getElementById('imprt')
 let fileHandle;
 btn.addEventListener('click', async () => {
   [fileHandle] = await window.showOpenFilePicker();
@@ -16,11 +16,11 @@ btn.addEventListener('click', async () => {
   const contents = await file.text();
   textArea.value = contents;
 });</script>
-<textarea id="text" style="resize: none; height: 340px; width: 500px; font-family: monospace;" onchange="    const text = document.getElementById('text')
+<textarea id="text" style="resize: none; height: 470px; width: 800px; font-family: monospace;" onchange="    const text = document.getElementById('text')
     let f = text.value.toString()
-    console.log(f)"></textarea>
-<button id="import" style="text-align:right;left:50px;position:relative;bottom:325px;">Import</button>
-<button id="export" style="right:20px;position:relative;bottom:300px;" onclick="
+    console.log(f)" placeholder="Start typing here..."></textarea>
+<button id="imprt" style="text-align:right;left:860px;position:absolute;bottom:460px;">Import</button>
+<button id="export" style="left:850px;position:absolute;bottom:430px;" onclick="
 async function saveFile() {
    const text = document.getElementById('text')
     let f = text.value.toString()
@@ -39,15 +39,7 @@ const blob = new Blob(array)
   await writableStream.close();
 }
 saveFile();">Save File</button>
-<select style="position:absolute;left:520px;bottom:340px;">
-<option>-Select Syntax-</option>
-<option>Plain text (.txt)</option>
-<option>Javascript (.js)</option><option>HTML (.htm/.html)</option>
-<option>CSS (.css)</option>
-<option>Markdown (.md)</option>
-<option>C# (.cs)</option>
-<option>C++ (.cpp)</option>
-</select><select style="position:absolute;left:535px;bottom:400px;" id="fontsel">
+<select style="position:absolute;left:835px;bottom:400px;" id="fontsel">
 
 <option>-Select Font-</option>
 <option value="sans-serif">Sans-Serif</option>
@@ -57,7 +49,8 @@ saveFile();">Save File</button>
 
 
 </select><br>
-<button style="position:relative;left:530px;bottom:260px;" onclick="const font = document.getElementById('fontsel'); const text = document.getElementById('text'); text.style.fontFamily = font.value">Change font</button>
+<button style="position:absolute;left:840px;bottom:370px;" onclick="const font = document.getElementById('fontsel'); const text = document.getElementById('text'); text.style.fontFamily = font.value">Change font</button>
+
 
 
 
